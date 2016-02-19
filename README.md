@@ -57,7 +57,7 @@ Check [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
 ## History
 
-Check [Releases](https://github.com/pinceladasdaweb/DynamicMaxHeight/releases) for detailed changelog.
+Check [Releases](https://github.com/pinceladasdaweb/jullius/releases) for detailed changelog.
 
 ## License
 [MIT](LICENSE)
