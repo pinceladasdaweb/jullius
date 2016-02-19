@@ -1,0 +1,37 @@
+{
+  "name": "jullius",
+  "version": "0.0.1",
+  "description": "Light weight library to manage JSONP calls using Promises",
+  "author": "@pinceladasdaweb",
+  "copyright": "2016",
+  "license": "MIT",
+  "main": "dist/jullius.js",
+  "url": "https://github.com/pinceladasdaweb/jullius",
+  "homepage": "https://github.com/pinceladasdaweb/jullius",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinceladasdaweb/jullius.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pinceladasdaweb/jullius/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-clean": "~0.3.1",
+    "gulp-rename": "~1.2.2",
+    "gulp-uglify": "~1.5.2",
+    "gulp-plumber": "~1.1.0",
+    "gulp-header": "~1.7.1"
+  },
+  "keywords": [
+    "jsonp",
+    "cross domain",
+    "ajax",
+    "promises",
+    "load",
+    "scripts"
+  ]
+}
