@@ -1,4 +1,4 @@
-/*! jullius v0.0.2 | (c) 2016 @pinceladasdaweb | https://github.com/pinceladasdaweb/jullius */
+/*! jullius v0.0.3 | (c) 2016 @pinceladasdaweb | https://github.com/pinceladasdaweb/jullius */
 (function (root, factory) {
     "use strict";
     if (typeof define === 'function' && define.amd) {
@@ -28,7 +28,19 @@
         script.parentNode.removeChild(script);
     };
 
-    var jullius = function(url) {
+    var buildQuery = function (params) {
+        var query = '', key;
+
+        for (key in params) {
+            if(params.hasOwnProperty(key)) {
+                 query += encodeURIComponent(key) + "=" + encodeURIComponent(params[key]) + "&"
+            }
+        };
+
+        return query;
+    };
+
+    var jullius = function(url, params) {
         return new Promise(function(resolve, reject) {
             if (typeof url !== 'string') {
                 reject('You need pass a valid url!!!');
@@ -41,7 +53,7 @@
             extScript.type = 'text/javascript';
 
             script       = extScript.cloneNode();
-            script.src   = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + name;
+            script.src   = url + (url.indexOf('?') >= 0 ? '&' : '?') + buildQuery(params) + 'callback=' + name;
             script.id    = name;
             script.async = true;
 

@@ -27,7 +27,19 @@
         script.parentNode.removeChild(script);
     };
 
-    var jullius = function(url) {
+    var buildQuery = function (params) {
+        var query = '', key;
+
+        for (key in params) {
+            if(params.hasOwnProperty(key)) {
+                 query += encodeURIComponent(key) + "=" + encodeURIComponent(params[key]) + "&"
+            }
+        };
+
+        return query;
+    };
+
+    var jullius = function(url, params) {
         return new Promise(function(resolve, reject) {
             if (typeof url !== 'string') {
                 reject('You need pass a valid url!!!');
@@ -40,7 +52,7 @@
             extScript.type = 'text/javascript';
 
             script       = extScript.cloneNode();
-            script.src   = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + name;
+            script.src   = url + (url.indexOf('?') >= 0 ? '&' : '?') + buildQuery(params) + 'callback=' + name;
             script.id    = name;
             script.async = true;
 
