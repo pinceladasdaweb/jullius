@@ -23,7 +23,10 @@ Require the package or use the global `jullius` namespace and passing a *url*, p
 ```html
 <script src="path/to/jullius.min.js"></script>
 <script>
-jullius('http://www.pinceladasdaweb.com.br/blog/?json=get_recent_posts')
+jullius('http://www.pinceladasdaweb.com.br/blog/', {
+    json: 'get_recent_posts',
+    count: 5
+})
 .then(function(data) {
     console.dir(data);
 })
@@ -42,6 +45,10 @@ var jullius = require('jullius');
 ```js
 import jullius from 'jullius';
 ```
+
+##Options
+* url: (string) (required) URL for the JSONP resource.
+* params: (object) (optional) Object used to generate GET query parameters for the JSONP resource.
 
 ##Browser Support
 
