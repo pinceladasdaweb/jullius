@@ -10,13 +10,30 @@
 }(this, function () {
     'use strict';
 
+    var generateCallback = function () {
+        return 'jullius_' + Date.now() + '_' + Math.ceil(Math.random() * 100000);
+    };
+
+    var clearFunction = function (fn) {
+        try {
+            delete window[fn];
+        } catch (e) {
+            window[fn] = undefined;
+        }
+    };
+
+    var removeScript = function (id) {
+        var script = document.getElementById(id);
+        script.parentNode.removeChild(script);
+    };
+
     var jullius = function(url) {
         return new Promise(function(resolve, reject) {
             if (typeof url !== 'string') {
                 reject('You need pass a valid url!!!');
             }
 
-            var name = 'jullius_' + Math.round(100000000000 * Math.random()), head, script, extScript;
+            var name = generateCallback(), head, script, extScript;
 
             head           = document.head || document.getElementsByTagName('head')[0];
             extScript      = document.createElement('script');
@@ -24,19 +41,17 @@
 
             script       = extScript.cloneNode();
             script.src   = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + name;
+            script.id    = name;
             script.async = true;
 
             head.appendChild(script);
 
             window[name] = function (data) {
                 resolve(data);
-
-                try {
-                    delete window[name];
-                } catch(e) {
-                    window[name] = undefined;
-                }
+                clearFunction(name);
             }
+
+            removeScript(name);
 
             script.addEventListener('error', reject);
         });
