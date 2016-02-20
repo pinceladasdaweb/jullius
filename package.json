@@ -1,6 +1,6 @@
 {
   "name": "jullius",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Light weight library to manage JSONP calls using Promises",
   "author": "@pinceladasdaweb",
   "copyright": "2016",
