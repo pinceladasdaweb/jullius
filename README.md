@@ -9,7 +9,7 @@ With npm
 npm install jullius --save
 ```
 
-Download
+## Download
 
 You can download the latest version or checkout all the releases [here](https://github.com/pinceladasdaweb/jullius/releases).
 
